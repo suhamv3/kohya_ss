@@ -2,6 +2,7 @@ import gradio as gr
 import json
 import math
 import os
+import subprocess
 import argparse
 from datetime import datetime
 from library.common_gui import (
@@ -1035,7 +1036,8 @@ def train_model(
 
         log.info(run_cmd)
         # Run the command
-        executor.execute_command(run_cmd=run_cmd)
+        ##executor.execute_command(run_cmd=run_cmd)
+        subprocess.run(run_cmd)
 
         # # check if output_dir/last is a folder... therefore it is a diffuser model
         # last_dir = pathlib.Path(f'{output_dir}/{output_name}')
