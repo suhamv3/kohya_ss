@@ -1036,9 +1036,10 @@ def train_model(
 
         log.info(run_cmd)
         # Run the command
-        ##executor.execute_command(run_cmd=run_cmd)
-        p = subprocess.Popen(run_cmd, shell=True)
-        p.communicate()
+        executor.execute_command(run_cmd=run_cmd)
+
+        #p = subprocess.Popen(run_cmd, shell=True)
+        #p.communicate()
 
 
         # # check if output_dir/last is a folder... therefore it is a diffuser model

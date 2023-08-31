@@ -819,6 +819,12 @@ class NetworkTrainer:
 
                     self.sample_images(accelerator, args, None, global_step, accelerator.device, vae, tokenizer, text_encoder, unet)
 
+                    #SUHA SAVE STEP TO TXT
+                    text_file = open(args.logging_dir + '/steps.txt', "w")
+                    text_file.write(str(int(time.time())) + "_" + "step_" + str(global_step))
+                    text_file.close()
+                    #SUHA SAVE STEP TO TXT
+
                     # 指定ステップごとにモデルを保存
                     if args.save_every_n_steps is not None and global_step % args.save_every_n_steps == 0:
                         accelerator.wait_for_everyone()

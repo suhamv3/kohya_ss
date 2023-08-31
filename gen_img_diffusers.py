@@ -947,7 +947,7 @@ class PipelineLike:
             text_emb_last = torch.stack(text_emb_last)
         else:
             text_emb_last = text_embeddings
-            
+
         for i, t in enumerate(tqdm(timesteps)):
             # expand the latents if we are doing classifier free guidance
             latent_model_input = latents.repeat((num_latent_input, 1, 1, 1))
