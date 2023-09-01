@@ -2,6 +2,7 @@ import gradio as gr
 import json
 import math
 import os
+import time
 import subprocess
 import argparse
 from datetime import datetime
@@ -1033,6 +1034,12 @@ def train_model(
             file_path=file_path,
             exclusion=['file_path', 'save_as', 'headless', 'print_only'],
         )
+
+        #SUHA SAVE STEP TO TXT
+        text_file = open(logging_dir + '/steps.txt', "w")
+        text_file.write(str(int(time.time())) + "_" + "step_0")
+        text_file.close()
+        #SUHA SAVE STEP TO TXT
 
         log.info(run_cmd)
         # Run the command
